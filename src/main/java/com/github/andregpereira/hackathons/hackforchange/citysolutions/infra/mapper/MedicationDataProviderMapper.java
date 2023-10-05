@@ -2,9 +2,7 @@ package com.github.andregpereira.hackathons.hackforchange.citysolutions.infra.ma
 
 import com.github.andregpereira.hackathons.hackforchange.citysolutions.domain.model.Medication;
 import com.github.andregpereira.hackathons.hackforchange.citysolutions.infra.entity.MedicationEntity;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.ReportingPolicy;
+import org.mapstruct.*;
 
 import java.util.List;
 
@@ -18,5 +16,8 @@ public interface MedicationDataProviderMapper {
     default List<Medication> toModelList(List<MedicationEntity> m) {
         return m.stream().map(this::toModel).toList();
     }
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    MedicationEntity partialUpdate(Medication m, @MappingTarget MedicationEntity e);
 
 }

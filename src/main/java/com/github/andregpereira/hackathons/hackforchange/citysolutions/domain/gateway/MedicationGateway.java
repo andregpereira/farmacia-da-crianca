@@ -9,6 +9,8 @@ public interface MedicationGateway {
 
     Uni<Medication> create(Medication medication);
 
+    Uni<Medication> update(Long id, Medication medication);
+
     Uni<Void> delete(Long id);
 
     Uni<Medication> findById(Long id);

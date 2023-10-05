@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 public record MedicationDto(Long id,
         String name,
-        BigDecimal price) {
+        BigDecimal price,
+        String imageUrl) {
 
 }
