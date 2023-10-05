@@ -13,7 +13,7 @@ release.properties
 bin/
 
 # IntelliJ
-farmacia-da-crianca/.idea
+.idea
 *.ipr
 *.iml
 *.iws
