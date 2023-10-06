@@ -3,10 +3,7 @@ package com.github.andregpereira.hackathons.hackforchange.citysolutions.app.serv
 import com.github.andregpereira.hackathons.hackforchange.citysolutions.app.dto.medicamento.MedicationCreateDto;
 import com.github.andregpereira.hackathons.hackforchange.citysolutions.app.dto.medicamento.MedicationDto;
 import com.github.andregpereira.hackathons.hackforchange.citysolutions.app.mapper.MedicationServiceMapper;
-import com.github.andregpereira.hackathons.hackforchange.citysolutions.domain.usecase.medication.MedicationCreateUc;
-import com.github.andregpereira.hackathons.hackforchange.citysolutions.domain.usecase.medication.MedicationDeleteUc;
-import com.github.andregpereira.hackathons.hackforchange.citysolutions.domain.usecase.medication.MedicationFindAllIdUc;
-import com.github.andregpereira.hackathons.hackforchange.citysolutions.domain.usecase.medication.MedicationFindByIdUc;
+import com.github.andregpereira.hackathons.hackforchange.citysolutions.domain.usecase.medication.*;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +15,7 @@ import java.util.List;
 public class MedicationServiceImpl implements MedicationService {
 
     private final MedicationCreateUc createUc;
+    private final MedicationUpdateUc updateUc;
     private final MedicationDeleteUc deleteUc;
     private final MedicationFindByIdUc findByIdUc;
     private final MedicationFindAllIdUc findAllIdUc;
@@ -30,7 +28,7 @@ public class MedicationServiceImpl implements MedicationService {
 
     @Override
     public Uni<MedicationDto> update(Long id, MedicationCreateDto dto) {
-        return null;
+        return updateUc.update(id, mapper.toModel(dto)).map(mapper::toDto);
     }
 
     @Override
