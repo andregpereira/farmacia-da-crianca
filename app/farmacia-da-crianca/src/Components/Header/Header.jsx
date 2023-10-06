@@ -17,6 +17,8 @@ const Header = () => {
              className={({ isActive }) => `nav_link${isActive ? " active" : ""}`}>CATÁLOGO</NavLink>
             <NavLink to="/criancas"
              className={({ isActive }) => `nav_link${isActive ? " active" : ""}`}>HISTÓRIA</NavLink>
+            <NavLink to="/medicamentos"
+             className={({ isActive }) => `nav_link${isActive ? " active" : ""}`}>CADASTRE</NavLink>
             </S.Principal>
             
             <S.iconsHeader>
