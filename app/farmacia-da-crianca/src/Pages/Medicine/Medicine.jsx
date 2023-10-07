@@ -23,8 +23,7 @@ const Medicine = () => {
         console.log(JSON.stringify(medicine))
 
         fetch(`http://localhost:8080/medicamentos/${id ? id : ""}`, {
-            mode: 'no-cors',
-            method: "post",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
