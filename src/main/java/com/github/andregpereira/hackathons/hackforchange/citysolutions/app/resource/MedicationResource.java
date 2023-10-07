@@ -19,8 +19,8 @@ public class MedicationResource {
     private final MedicationService service;
     private final UriInfo uriInfo;
 
-    private URI getUri(MedicationDto id) {
-        return uriInfo.getAbsolutePathBuilder().path("{id}").build(id);
+    private URI getUri(MedicationDto dto) {
+        return uriInfo.getAbsolutePathBuilder().path("{id}").build(dto.id());
     }
 
     @POST
