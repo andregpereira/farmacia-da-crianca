@@ -12,7 +12,7 @@ const Catalog = () => {
     const [produtos, setProdutos] = useState([]);
   //  const [input, setInput] = useState("");
     useEffect(() => {
-      api.get("/produtos").then((response) => {
+      api.get("http://localhost:8080/medicamentos").then((response) => {
         setProdutos(response.data);
         console.log(produtos);
       });
@@ -32,13 +32,13 @@ const Catalog = () => {
                   return (
                     <Link
                       key={item.id}
-                      to={`/produtos/${item.id}`}
+                      to={`http://localhost:8080/medicamentos/${item.id}`}
                       className="link"
                     >
                       <ViewProduct
-                        imagem={item.imagem}
-                        preco={item.preco}
-                        nome={item.nome}
+                        imagem={item.imageUrl}
+                        preco={item.price}
+                        nome={item.name}
 
                       />
                     </Link>
